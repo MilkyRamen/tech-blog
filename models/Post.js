@@ -1,5 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const Comment = require('./Comment');
+const User = require('./User');
 
 const Post = sequelize.define('post', {
     id: {
@@ -21,9 +23,6 @@ const Post = sequelize.define('post', {
         defaultValue: DataTypes.NOW,
     },
 });
-
-const Comment = require('./Comment');
-const User = require('./User');
 
 Post.hasMany(Comment, {
     foreignKey: 'postId',
