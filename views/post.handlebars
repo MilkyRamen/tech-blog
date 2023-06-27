@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post</title>
+</head>
+<body>
+    <h1>{{post.title}}</h1>
+    <p>{{post.content}}</p>
+    <p>Posted by {{post.user.username}} on {{post.createdAt}}</p>
+
+    <h2>Comments</h2>
+    {{#if comments.length}}
+        <ul>
+            {{#each comments}}
+            <li>
+                <p>{{comment}}</p>
+                <p>By {{user.username}} on {{createdAt}}</p>
+            </li>
+            {{/each}}
+        </ul>
+    {{else}} 
+    <p>No Comments Yet.</p>
+    {{/if}} 
+
+    <h2>Add a comment</h2>
+    <form action="/post/{{post.id}}/comment" method="POST">
+        <textarea name="commment" rows="4" cols="50"></textarea>
+        <br>
+        <button type="submit">Submit</button> 
+    </form>
+</body>
+</html>
