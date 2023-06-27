@@ -22,4 +22,16 @@ const Post = sequelize.define('post', {
     },
 });
 
+const Comment = require('./Comment');
+const User = require('./User');
+
+Post.hasMany(Comment, {
+    foreignKey: 'postId',
+    onDelete: 'CASCADE',
+});
+
+Post.belongsTo(User, {
+    foreignKey: 'postId',
+});
+
 module.exports = Post;    
