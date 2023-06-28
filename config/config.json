@@ -1,0 +1,14 @@
+{
+    "development": {
+      "password": "luhroot",
+      "database": "blog_db",
+      "host": "localhost",
+      "dialect": "mysql"
+    },
+    "production": {
+      "password": "luhroot",
+      "database": "blog_db",
+      "host": "localhost",
+      "dialect": "mysql"
+    }
+  }
